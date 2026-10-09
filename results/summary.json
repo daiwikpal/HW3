@@ -1,0 +1,71 @@
+{
+  "seed": 42,
+  "test_questions": 100,
+  "performance": [
+    {
+      "model": "base",
+      "n": 100,
+      "mean_accuracy": 0.33,
+      "sd_accuracy": 0.4725815626,
+      "mean_latency_ms": 160.2611758077,
+      "sd_latency_ms": 55.0872061949
+    },
+    {
+      "model": "lora_r8",
+      "n": 100,
+      "mean_accuracy": 0.48,
+      "sd_accuracy": 0.5021167316,
+      "mean_latency_ms": 387.607393431,
+      "sd_latency_ms": 131.5593133871
+    },
+    {
+      "model": "lora_r64",
+      "n": 100,
+      "mean_accuracy": 0.53,
+      "sd_accuracy": 0.501613558,
+      "mean_latency_ms": 388.7472779781,
+      "sd_latency_ms": 131.9325794211
+    }
+  ],
+  "size_and_training": [
+    {
+      "model": "base",
+      "total_params": 3085938688,
+      "trainable_params": 0,
+      "trainable_percent": 0.0,
+      "size_bytes": 6171877376,
+      "adapter_mb": 0.0,
+      "train_time_s": null,
+      "peak_gpu_memory_gb": null,
+      "final_train_loss": null,
+      "final_validation_loss": null,
+      "test_accuracy": 0.33
+    },
+    {
+      "model": "lora_r8",
+      "total_params": 3100905472,
+      "trainable_params": 14966784,
+      "trainable_percent": 0.4826585052,
+      "size_bytes": 6231811008,
+      "adapter_mb": 59.933632,
+      "train_time_s": 192.802408645,
+      "peak_gpu_memory_gb": 12.48740864,
+      "final_train_loss": 0.5484458923,
+      "final_validation_loss": 1.404974699,
+      "test_accuracy": 0.48
+    },
+    {
+      "model": "lora_r64",
+      "total_params": 3205672960,
+      "trainable_params": 119734272,
+      "trainable_percent": 3.73507446,
+      "size_bytes": 6650882440,
+      "adapter_mb": 479.005064,
+      "train_time_s": 193.077628904,
+      "peak_gpu_memory_gb": 14.41248768,
+      "final_train_loss": 0.315500474,
+      "final_validation_loss": 1.3721052408,
+      "test_accuracy": 0.53
+    }
+  ]
+}

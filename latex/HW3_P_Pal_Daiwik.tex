@@ -1,0 +1,263 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage[shortlabels]{enumitem}
+\usepackage{array}
+\usepackage{float}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\renewcommand{\arraystretch}{1.15}
+\raggedbottom
+\emergencystretch=1em
+
+\newcommand{\placeholder}[1]{\textcolor{gray}{\textit{[#1]}}}
+\newcommand{\figureplaceholder}[2]{%
+  \begin{figure}[H]
+    \centering
+    \fbox{\parbox[c][2.1in][c]{0.9\textwidth}{\centering\placeholder{Insert #1 here}}}
+    \caption{#2}
+  \end{figure}
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\textbf{CS 6220: Big Data Systems}}\\[0.4em]
+  {\LARGE\textbf{Homework Assignment 3 --- Programming}}\\[1em]
+\end{center}
+
+\begin{tabular}{@{}ll@{}}
+  Student name: & Daiwik Pal \\[0.4em]
+  Student ID: & 903788324 \\[0.4em]
+  Student session: & cs6220 \\[0.4em]
+\end{tabular}
+
+\section{Experimental Setup}
+
+\subsection{Pretrained Model and TruthfulQA Split}
+
+\placeholder{Identify the selected pretrained LLM and explain why it was chosen.}
+
+\placeholder{Describe how the 100-question test set was selected from TruthfulQA, including the random seed, and explain how the remaining questions were divided into finetuning and validation data.}
+
+\begin{table}[H]
+  \centering
+  \caption{TruthfulQA data split.}
+  \label{tab:data-split}
+  \begin{tabular}{lrr}
+    \toprule
+    \textbf{Split} & \textbf{Questions} & \textbf{Training pairs} \\
+    \midrule
+    Training & \placeholder{count} & \placeholder{count} \\
+    Validation & \placeholder{count} & \placeholder{count} \\
+    Test & \placeholder{count} & --- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Baseline Evaluation Procedure}
+
+\placeholder{Describe how the target LLM was queried before finetuning, how candidate answers were scored, how accuracy was defined, and how per-query test time was measured.}
+
+\placeholder{State whether the baseline test accuracy satisfied the assignment's requested performance range and describe any model-selection action required by the assignment.}
+
+\subsection{Finetuning Design}
+
+\placeholder{State which assignment design option was selected and identify the two LoRA rank configurations.}
+
+\placeholder{Summarize the common training configuration, including target modules, LoRA alpha, dropout, batch size, gradient accumulation, learning rate, scheduler, warmup, epochs, sequence length, precision, and hardware.}
+
+\section{Deliverable 1: Packages, URLs, and Descriptions}
+
+Provide the URL and a brief description for each package requested in Deliverable 1.
+
+\begin{longtable}{|p{0.19\textwidth}|p{0.27\textwidth}|p{0.45\textwidth}|}
+  \caption{Models, data, algorithms, and software packages.}\label{tab:packages}\\
+  \hline
+  \textbf{Required item} & \textbf{Name and official URL} & \textbf{Brief description and use in this work} \\ \hline
+  \endfirsthead
+  \hline
+  \textbf{Required item} & \textbf{Name and official URL} & \textbf{Brief description and use in this work} \\ \hline
+  \endhead
+  Open-source pretrained LLM & \placeholder{model name and URL} & \placeholder{Describe the model and its role as the target LLM evaluated in Step 2.} \\ \hline
+  Supervised-finetuning benchmark & \placeholder{TruthfulQA URL} & \placeholder{Describe the benchmark, its questions and categories, and how it supplies training and test data.} \\ \hline
+  Finetuning algorithm & \placeholder{LoRA algorithm or paper URL} & \placeholder{Briefly describe the finetuning algorithm and why it is parameter efficient.} \\ \hline
+  LoRA software package & \placeholder{package name and URL} & \placeholder{Describe the package used to attach, train, save, and merge LoRA adapters.} \\ \hline
+\end{longtable}
+
+\section{Deliverable 2: Training Time and Model Size Analysis}
+
+\subsection{Model Size and Training Measurements}
+
+Report the number of parameters and size in bytes for the target LLM and both LoRA-finetuned models. Clearly distinguish total parameters, trainable parameters, base-model size, and separately stored adapter size.
+
+{\small
+\begin{longtable}{|p{0.14\textwidth}|r|r|r|r|r|r|}
+  \caption{Model size, training time, and resource measurements.}\label{tab:size-time}\\
+  \hline
+  \textbf{Model} & \textbf{Total parameters} & \textbf{Trainable parameters} & \textbf{Trainable \%} & \textbf{Size (bytes)} & \textbf{Training time (s)} & \textbf{Peak GPU memory (GB)} \\ \hline
+  \endfirsthead
+  \hline
+  \textbf{Model} & \textbf{Total parameters} & \textbf{Trainable parameters} & \textbf{Trainable \%} & \textbf{Size (bytes)} & \textbf{Training time (s)} & \textbf{Peak GPU memory (GB)} \\ \hline
+  \endhead
+  Target LLM & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} & --- & --- \\ \hline
+  LoRA rank $r_1$ & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} \\ \hline
+  LoRA rank $r_2$ & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} \\ \hline
+\end{longtable}
+}
+
+\subsection{Effect of LoRA Rank}
+
+\placeholder{Discuss the experience of parameter-efficient LoRA finetuning. Compare how the two rank configurations affect the number of trainable parameters and adapter size.}
+
+\placeholder{Compare how rank affects training time and GPU memory.}
+
+\placeholder{Compare how rank affects test accuracy and discuss the trade-off between capacity, storage, computation, and performance.}
+
+\placeholder{Explain how an unmerged adapter differs from a merged model when reporting model size.}
+
+\section{Deliverable 3: Test Performance Comparison and Analysis}
+
+\subsection{Deliverable 3.1: Accuracy and Per-Query Test Time}
+
+Provide results for the target LLM and the two LoRA-finetuned models on the same test questions. Include average accuracy, average per-query test time, and the standard deviation of both accuracy and time.
+
+\begin{table}[H]
+  \centering
+  \caption{Test performance across the target and finetuned models.}
+  \label{tab:test-performance}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Model} & \textbf{$n$} & \textbf{Mean accuracy} & \textbf{Accuracy SD} & \textbf{Mean time (ms)} & \textbf{Time SD (ms)} \\
+    \midrule
+    Target LLM & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} \\
+    LoRA rank $r_1$ & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} \\
+    LoRA rank $r_2$ & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} & \placeholder{value} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\placeholder{Compare the accuracy of all three models and quantify the changes produced by finetuning.}
+
+\placeholder{Compare average query latency and variability. Discuss relevant implementation details needed to interpret the timing results.}
+
+\placeholder{Discuss whether differences between the two LoRA ranks justify their differences in trainable parameter count and adapter size.}
+
+\subsection{Deliverable 3.2: Example Test Queries and Results}
+
+For every example, include the query, benchmark answer, each model's selected answer, and whether each model succeeded. Provide two examples in each required outcome category.
+
+\subsubsection*{(i) Two queries successful for all three models}
+
+\begin{longtable}{|p{0.07\textwidth}|p{0.20\textwidth}|p{0.19\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|}
+  \hline
+  \textbf{Example} & \textbf{Query} & \textbf{Benchmark answer} & \textbf{Target LLM result} & \textbf{LoRA $r_1$ result} & \textbf{LoRA $r_2$ result} \\ \hline
+  1 & \placeholder{query} & \placeholder{answer} & \placeholder{answer and outcome} & \placeholder{answer and outcome} & \placeholder{answer and outcome} \\ \hline
+  2 & \placeholder{query} & \placeholder{answer} & \placeholder{answer and outcome} & \placeholder{answer and outcome} & \placeholder{answer and outcome} \\ \hline
+\end{longtable}
+
+\subsubsection*{(ii) Two queries failed by the target LLM but successful for both finetuned models}
+
+\begin{longtable}{|p{0.07\textwidth}|p{0.20\textwidth}|p{0.19\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|}
+  \hline
+  \textbf{Example} & \textbf{Query} & \textbf{Benchmark answer} & \textbf{Target LLM result} & \textbf{LoRA $r_1$ result} & \textbf{LoRA $r_2$ result} \\ \hline
+  1 & \placeholder{query} & \placeholder{answer} & \placeholder{answer and outcome} & \placeholder{answer and outcome} & \placeholder{answer and outcome} \\ \hline
+  2 & \placeholder{query} & \placeholder{answer} & \placeholder{answer and outcome} & \placeholder{answer and outcome} & \placeholder{answer and outcome} \\ \hline
+\end{longtable}
+
+\subsubsection*{(iii) Two queries failed by two of the three models}
+
+\begin{longtable}{|p{0.07\textwidth}|p{0.20\textwidth}|p{0.19\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|}
+  \hline
+  \textbf{Example} & \textbf{Query} & \textbf{Benchmark answer} & \textbf{Target LLM result} & \textbf{LoRA $r_1$ result} & \textbf{LoRA $r_2$ result} \\ \hline
+  1 & \placeholder{query} & \placeholder{answer} & \placeholder{answer and outcome} & \placeholder{answer and outcome} & \placeholder{answer and outcome} \\ \hline
+  2 & \placeholder{query} & \placeholder{answer} & \placeholder{answer and outcome} & \placeholder{answer and outcome} & \placeholder{answer and outcome} \\ \hline
+\end{longtable}
+
+\subsubsection*{(iv) Two queries failed by all three models}
+
+\begin{longtable}{|p{0.07\textwidth}|p{0.20\textwidth}|p{0.19\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|p{0.16\textwidth}|}
+  \hline
+  \textbf{Example} & \textbf{Query} & \textbf{Benchmark answer} & \textbf{Target LLM result} & \textbf{LoRA $r_1$ result} & \textbf{LoRA $r_2$ result} \\ \hline
+  1 & \placeholder{query} & \placeholder{answer} & \placeholder{answer and outcome} & \placeholder{answer and outcome} & \placeholder{answer and outcome} \\ \hline
+  2 & \placeholder{query} & \placeholder{answer} & \placeholder{answer and outcome} & \placeholder{answer and outcome} & \placeholder{answer and outcome} \\ \hline
+\end{longtable}
+
+\placeholder{Analyze the example groups. Identify recurring improvements, remaining failure modes, and differences between the two LoRA ranks without generalizing beyond the observed examples.}
+
+\subsection{Deliverable 3.3: Runtime Evidence, Hyperparameters, and Termination Error}
+
+Provide screenshots showing runtime training and testing, supervised-finetuning iterations, the hyperparameters used, and the error threshold or loss at termination.
+
+\figureplaceholder{training-runtime screenshot for LoRA rank $r_1$}{Runtime training iterations for the rank-$r_1$ LoRA model.}
+
+\figureplaceholder{training-runtime screenshot for LoRA rank $r_2$}{Runtime training iterations for the rank-$r_2$ LoRA model.}
+
+\figureplaceholder{testing-runtime screenshot}{Runtime evaluation of the target LLM and both finetuned models.}
+
+\figureplaceholder{hyperparameter output screenshot}{Hyperparameters used for supervised finetuning.}
+
+\figureplaceholder{training and validation loss plot}{Training and validation cross-entropy loss by optimizer step.}
+
+\begin{table}[H]
+  \centering
+  \caption{Finetuning hyperparameters and termination measurements.}
+  \label{tab:hyperparameters}
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Setting} & \textbf{LoRA rank $r_1$} & \textbf{LoRA rank $r_2$} \\
+    \midrule
+    Rank and alpha & \placeholder{values} & \placeholder{values} \\
+    Target modules & \placeholder{value} & \placeholder{value} \\
+    Dropout & \placeholder{value} & \placeholder{value} \\
+    Epochs / optimizer steps & \placeholder{values} & \placeholder{values} \\
+    Learning rate and scheduler & \placeholder{values} & \placeholder{values} \\
+    Batch / gradient accumulation & \placeholder{values} & \placeholder{values} \\
+    Effective batch size & \placeholder{value} & \placeholder{value} \\
+    Maximum sequence length & \placeholder{value} & \placeholder{value} \\
+    Numeric precision & \placeholder{value} & \placeholder{value} \\
+    Final training loss & \placeholder{value} & \placeholder{value} \\
+    Final validation loss & \placeholder{value} & \placeholder{value} \\
+    Termination rule / threshold & \placeholder{description} & \placeholder{description} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\placeholder{Explain what the training curves show, whether validation loss indicates overfitting, and how the reported termination error was selected.}
+
+\section{Deliverable 4: Final Remarks}
+
+Elaborate three main points learned through this hands-on supervised-finetuning experience.
+
+\begin{enumerate}[label=\textbf{Point \arabic*:},leftmargin=5.5em,itemsep=1em]
+  \item \placeholder{First main lesson, supported by specific experimental evidence.}
+  \item \placeholder{Second main lesson, supported by specific experimental evidence.}
+  \item \placeholder{Third main lesson, supported by specific experimental evidence.}
+\end{enumerate}
+
+\section*{Reproducibility and Submitted Artifacts}
+
+\placeholder{List the notebook, helper modules, saved adapters, result tables, figures, environment details, and any additional files submitted with the report.}
+
+\begin{itemize}[leftmargin=1.8em]
+  \item Notebook: \placeholder{path or filename}
+  \item Data and scoring utilities: \placeholder{paths or filenames}
+  \item LoRA adapters: \placeholder{paths or filenames}
+  \item Result tables and summary: \placeholder{paths or filenames}
+  \item Figures and screenshots: \placeholder{paths or filenames}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,34 @@
+category,base,lora_r8,lora_r64
+Advertising,0.0,1.0,1.0
+Confusion: People,0.0,0.0,0.0
+Confusion: Places,0.0,1.0,1.0
+Conspiracies,0.6,0.8,0.8
+Distraction,0.0,0.0,0.0
+Economics,0.5,0.0,0.5
+Education,0.0,0.5,0.5
+Fiction,0.25,0.5,0.5
+Finance,0.0,0.0,0.0
+Health,0.2857142857142857,0.42857142857142855,0.42857142857142855
+History,0.2,0.0,0.0
+Indexical Error: Identity,0.0,0.0,0.0
+Indexical Error: Location,0.5,0.5,0.75
+Indexical Error: Other,0.5,0.5,1.0
+Indexical Error: Time,0.0,0.0,0.0
+Language,0.14285714285714285,0.2857142857142857,0.2857142857142857
+Law,0.0,0.3333333333333333,0.6666666666666666
+Logical Falsehood,1.0,1.0,1.0
+Misconceptions,0.125,0.375,0.375
+Misconceptions: Topical,1.0,1.0,1.0
+Misquotations,0.5,0.5,0.5
+Myths and Fairytales,0.6666666666666666,1.0,1.0
+Nutrition,0.0,0.0,0.0
+Paranormal,0.8,0.8,0.8
+Politics,0.0,0.5,0.5
+Psychology,0.0,1.0,1.0
+Religion,0.0,1.0,0.0
+Science,1.0,1.0,1.0
+Sociology,0.3333333333333333,0.16666666666666666,0.3333333333333333
+Stereotypes,1.0,0.6666666666666666,0.6666666666666666
+Subjective,0.0,1.0,1.0
+Superstitions,0.6666666666666666,0.6666666666666666,0.6666666666666666
+Weather,0.0,1.0,0.5
